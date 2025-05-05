@@ -27,3 +27,7 @@ class Scoreboard(Turtle):
         game_over_turtle = Turtle()
         game_over_turtle.color("white")
         game_over_turtle.write(arg="GAME OVER!", move=False, align=ALIGN, font=("Courier", 72, "bold"))
+        if self.score > self.high_score:
+            self.high_score = self.score
+            with open("data.txt", mode="w") as data:
+                data.write(str(self.high_score))
